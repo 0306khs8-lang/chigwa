@@ -1374,5 +1374,280 @@
       </a>
     </div>
   </div>
+  <!-- 시작: 첫 방문 배너 팝업 -->
+<style>
+  .clinic-popup-overlay{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(24, 24, 24, 0.52);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease, visibility .25s ease;
+  }
+
+  .clinic-popup-overlay.is-show{
+    opacity:1;
+    visibility:visible;
+  }
+
+  .clinic-popup{
+    position:relative;
+    width:min(100%, 460px);
+    background:#fffdfa;
+    border:1px solid rgba(109, 98, 90, 0.12);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 24px 60px rgba(24,24,24,0.18);
+    transform:translateY(10px) scale(.98);
+    transition:transform .25s ease;
+  }
+
+  .clinic-popup-overlay.is-show .clinic-popup{
+    transform:translateY(0) scale(1);
+  }
+
+  .clinic-popup-close{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:2;
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:999px;
+    background:rgba(32,38,45,0.72);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    cursor:pointer;
+    font-size:1rem;
+  }
+
+  .clinic-popup-image-wrap{
+    display:block;
+    background:#f3efea;
+  }
+
+  .clinic-popup-image{
+    display:block;
+    width:100%;
+    aspect-ratio:4 / 5;
+    object-fit:cover;
+  }
+
+  .clinic-popup-body{
+    padding:22px 22px 20px;
+  }
+
+  .clinic-popup-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:#efe8e2;
+    color:#544a44;
+    font-size:0.88rem;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+
+  .clinic-popup-title{
+    margin:0 0 10px;
+    color:#20262d;
+    font-size:1.3rem;
+    line-height:1.4;
+    letter-spacing:-0.03em;
+    font-weight:800;
+  }
+
+  .clinic-popup-desc{
+    margin:0;
+    color:#58616b;
+    font-size:0.97rem;
+    line-height:1.75;
+  }
+
+  .clinic-popup-actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+  }
+
+  .clinic-popup-btn{
+    flex:1;
+    min-height:50px;
+    border-radius:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-weight:800;
+    font-size:0.97rem;
+    text-decoration:none;
+    transition:all .2s ease;
+  }
+
+  .clinic-popup-btn.detail{
+    background:#6d625a;
+    color:#fff;
+  }
+
+  .clinic-popup-btn.detail:hover{
+    background:#544a44;
+  }
+
+  .clinic-popup-btn.close{
+    background:#fff;
+    color:#20262d;
+    border:1px solid #e6dfd7;
+    cursor:pointer;
+  }
+
+  @media (max-width:768px){
+    .clinic-popup-overlay{
+      align-items:flex-end;
+      padding:12px;
+    }
+
+    .clinic-popup{
+      width:100%;
+      max-width:none;
+      border-radius:22px 22px 18px 18px;
+    }
+
+    .clinic-popup-body{
+      padding:18px 16px 16px;
+    }
+
+    .clinic-popup-title{
+      font-size:1.16rem;
+    }
+
+    .clinic-popup-desc{
+      font-size:0.94rem;
+      line-height:1.7;
+    }
+
+    .clinic-popup-actions{
+      flex-direction:column;
+    }
+
+    .clinic-popup-btn{
+      width:100%;
+      min-height:52px;
+    }
+  }
+</style>
+
+<div class="clinic-popup-overlay" id="clinicPopupOverlay" aria-hidden="true">
+  <div class="clinic-popup" role="dialog" aria-modal="true" aria-labelledby="clinicPopupTitle">
+    <button
+      class="clinic-popup-close"
+      id="clinicPopupClose"
+      type="button"
+      aria-label="배너 닫기"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+
+    <a
+      class="clinic-popup-image-wrap"
+      href="https://blog.naver.com/yoonsdentalclinic/224213872087"
+      target="_blank"
+      rel="noopener"
+      aria-label="이벤트 자세히 보기"
+    >
+      <!-- 아래 이미지 주소만 나중에 교체하시면 됩니다 -->
+      <img
+        class="clinic-popup-image"
+        src="https://via.placeholder.com/900x1125.png?text=%EA%B4%91%EA%B3%A0+%EC%9D%B4%EB%AF%B8%EC%A7%80+%EC%98%88%EC%8B%9C"
+        alt="이벤트 배너 이미지"
+      />
+    </a>
+
+    <div class="clinic-popup-body">
+      <div class="clinic-popup-badge">
+        <i class="fas fa-bullhorn"></i>
+        <span>이벤트 안내</span>
+      </div>
+
+      <h2 class="clinic-popup-title" id="clinicPopupTitle">
+        현재 진행 중인 진료 안내를 확인해보세요
+      </h2>
+
+      <p class="clinic-popup-desc">
+        자세한 내용은 안내 페이지에서 확인하실 수 있습니다.
+        아래 버튼을 누르면 해당 페이지로 이동합니다.
+      </p>
+
+      <div class="clinic-popup-actions">
+        <a
+          class="clinic-popup-btn detail"
+          href="https://blog.naver.com/yoonsdentalclinic/224213872087"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fas fa-arrow-right"></i>
+          자세히 보기
+        </a>
+
+        <button class="clinic-popup-btn close" id="clinicPopupCloseBtn" type="button">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const overlay = document.getElementById('clinicPopupOverlay');
+    const closeBtn = document.getElementById('clinicPopupClose');
+    const closeBtnBottom = document.getElementById('clinicPopupCloseBtn');
+    const storageKey = 'mapo_yoon_dental_popup_closed';
+
+    function openPopup() {
+      if (!overlay) return;
+      overlay.classList.add('is-show');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+      if (!overlay) return;
+      overlay.classList.remove('is-show');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      sessionStorage.setItem(storageKey, '1');
+    }
+
+    if (!sessionStorage.getItem(storageKey)) {
+      window.addEventListener('load', function () {
+        setTimeout(openPopup, 250);
+      });
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closePopup);
+    if (closeBtnBottom) closeBtnBottom.addEventListener('click', closePopup);
+
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closePopup();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closePopup();
+    });
+  })();
+</script>
+<!-- 끝: 첫 방문 배너 팝업 -->
+
 </body>
 </html>
