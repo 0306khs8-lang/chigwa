@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마포연세윤치과 | 필요한 치료를 차분히 설명드리는 치과</title>
+  <meta
+    name="description"
+    content="마포연세윤치과는 자연치아 보존을 우선으로 생각하며, 진료 전 현재 상태와 치료 계획을 이해하기 쉽게 안내해드립니다. 공덕역·대흥역 인근, 화요일 야간진료, 건물 내 무료주차. 임플란트 수술이 필요한 경우 구강악안면외과 전문의와 협진하여 진행합니다."
+  />
+  <meta name="theme-color" content="#6d625a" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
+  />
+
+  <style>
+    :root{
+      --bg:#f3efea;
+      --surface:#fffdfa;
+      --surface-soft:#f8f5f1;
+      --surface-deep:#f1ebe4;
+      --text:#20262d;
+      --text-soft:#58616b;
+      --muted:#7a848f;
+      --line:#e6dfd7;
+      --primary:#6d625a;
+      --primary-dark:#544a44;
+      --primary-soft:#ece5de;
+      --subtle-blue:#eef2f5;
+      --subtle-blue-line:#d6dfe7;
+      --subtle-blue-text:#4f6475;
+      --warm-gold-bg:#f7f1e8;
+      --warm-gold-line:#e6d8c3;
+      --warm-gold-text:#7c6240;
+      --naver:#138a52;
+      --naver-soft:#edf7f1;
+      --kakao-bg:#f8f3cf;
+      --kakao-line:#e7dba0;
+      --kakao-text:#5e5209;
+      --shadow-sm:0 10px 28px rgba(34, 30, 26, 0.05);
+      --shadow-md:0 18px 44px rgba(34, 30, 26, 0.07);
+      --radius-2xl:32px;
+      --radius-xl:26px;
+      --radius-lg:20px;
+      --radius-md:16px;
+      --container:1180px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:'Pretendard',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+      letter-spacing:-0.01em;
+      word-break:keep-all;
+      -webkit-text-size-adjust:100%;
+    }
+
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit;}
+    button,input,textarea,select{font:inherit;}
+
+    .container{
+      width:min(calc(100% - 48px), var(--container));
+      margin:0 auto;
+    }
+
+    .section{
+      padding:96px 0;
+    }
+
+    .section-title{
+      max-width:780px;
+      margin:0 auto 46px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 15px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-size:0.95rem;
+      font-weight:700;
+      margin-bottom:16px;
+      border:1px solid rgba(109,98,90,0.08);
+    }
+
+    .section-title h2{
+      margin:0 0 16px;
+      font-size:clamp(2rem, 3vw, 2.9rem);
+      line-height:1.28;
+      letter-spacing:-0.04em;
+      color:var(--text);
+    }
+
+    .section-title p{
+      margin:0;
+      color:var(--text-soft);
+      font-size:1.08rem;
+      line-height:1.9;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,253,250,0.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(109,98,90,0.08);
+    }
+
+    .topbar-inner{
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:48px;
+      height:48px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #7a6d64 0%, #5b514b 100%);
+      color:#fff;
+      flex-shrink:0;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .brand-text{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+
+    .brand-text strong{
+      font-size:1.08rem;
+      letter-spacing:-0.02em;
+      line-height:1.3;
+      color:var(--text);
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:0.93rem;
+      line-height:1.5;
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .mini-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:44px;
+      padding:0 15px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      font-size:0.95rem;
+      font-weight:700;
+      white-space:nowrap;
+      box-shadow:0 4px 14px rgba(34,30,26,0.03);
+    }
+
+    .night-pill{
+      background:var(--warm-gold-bg);
+      border-color:var(--warm-gold-line);
+      color:var(--warm-gold-text);
+    }
+
+    .parking-pill{
+      background:var(--subtle-blue);
+      border-color:var(--subtle-blue-line);
+      color:var(--subtle-blue-text);
+    }
+
+    .call-pill{
+      background:#fff;
+    }
+
+    .hero{
+      padding:72px 0 40px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.18fr) minmax(340px,0.82fr);
+      gap:28px;
+      align-items:start;
+    }
+
+    .hero-main,
+    .hero-aside{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-2xl);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .hero-main{
+      padding:52px 48px;
+      background:
+        radial-gradient(circle at top right, rgba(109,98,90,0.04), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,253,250,1) 100%);
+    }
+
+    .hero-aside{
+      padding:30px 28px;
+      position:sticky;
+      top:102px;
+      background:
+        linear-gradient(180deg, rgba(248,245,241,0.78) 0%, rgba(255,253,250,1) 100%);
+    }
+
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:18px;
+      color:var(--primary-dark);
+      font-size:0.97rem;
+      font-weight:700;
+      line-height:1.6;
+    }
+
+    .hero h1{
+      margin:0 0 20px;
+      font-size:clamp(2.3rem, 4.6vw, 4.1rem);
+      line-height:1.18;
+      letter-spacing:-0.05em;
+      color:var(--text);
+    }
+
+    .hero-desc{
+      max-width:740px;
+      margin:0 0 28px;
+      color:var(--text-soft);
+      font-size:1.11rem;
+      line-height:1.95;
+    }
+
+    .hero-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:30px;
+    }
+
+    .hero-point{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 15px;
+      border-radius:999px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      color:var(--text);
+      font-size:0.96rem;
+      font-weight:700;
+      line-height:1.5;
+    }
+
+    .hero-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:4px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:56px;
+      padding:0 22px;
+      border-radius:16px;
+      font-weight:800;
+      font-size:1rem;
+      line-height:1.2;
+      transition:all .2s ease;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(109,98,90,0.16);
+    }
+
+    .btn-primary:hover{
+      background:var(--primary-dark);
+    }
+
+    .btn-light{
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--text);
+    }
+
+    .btn-kakao{
+      background:var(--kakao-bg);
+      border:1px solid var(--kakao-line);
+      color:var(--kakao-text);
+    }
+
+    .aside-title{
+      margin:0 0 18px;
+      font-size:1.18rem;
+      line-height:1.4;
+      letter-spacing:-0.02em;
+      color:var(--text);
+    }
+
+    .info-list{
+      display:grid;
+      gap:6px;
+    }
+
+    .info-item{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .info-item:last-child{
+      border-bottom:0;
+      padding-bottom:0;
+    }
+
+    .info-icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:var(--surface-soft);
+      color:var(--primary);
+      flex-shrink:0;
+      font-size:0.98rem;
+      border:1px solid rgba(109,98,90,0.06);
+    }
+
+    .info-item strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:1rem;
+      line-height:1.5;
+      color:var(--text);
+    }
+
+    .info-item span{
+      display:block;
+      color:var(--text-soft);
+      font-size:1rem;
+      line-height:1.8;
+    }
+
+    .summary-grid,
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:20px;
+    }
+
+    .summary-card,
+    .service-card,
+    .location-card,
+    .naver-review-card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .summary-card,
+    .service-card{
+      padding:30px 28px;
+    }
+
+    .summary-card .card-icon,
+    .service-card .card-icon{
+      width:50px;
+      height:50px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      margin-bottom:16px;
+      background:var(--surface-soft);
+      color:var(--primary);
+      font-size:1rem;
+      border:1px solid rgba(109,98,90,0.06);
+    }
+
+    .summary-card h3,
+    .service-card h3{
+      margin:0 0 12px;
+      font-size:1.2rem;
+      line-height:1.45;
+      letter-spacing:-0.02em;
+      color:var(--text);
+    }
+
+    .summary-card p,
+    .service-card p{
+      margin:0;
+      color:var(--text-soft);
+      font-size:1rem;
+      line-height:1.9;
+    }
+
+    .review-section{
+      background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,253,250,0.62) 100%);
+    }
+
+    .naver-review-wrap{
+      display:flex;
+      justify-content:center;
+    }
+
+    .naver-review-card{
+      width:min(100%, 840px);
+      padding:40px 34px;
+      text-align:center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(253,255,253,1) 100%);
+    }
+
+    .naver-review-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 15px;
+      border-radius:999px;
+      background:var(--naver-soft);
+      color:var(--naver);
+      font-size:0.92rem;
+      font-weight:800;
+      margin-bottom:16px;
+      border:1px solid rgba(19,138,82,0.08);
+    }
+
+    .naver-review-card h3{
+      margin:0 0 18px;
+      font-size:clamp(1.55rem, 2.5vw, 2rem);
+      line-height:1.4;
+      letter-spacing:-0.03em;
+      color:var(--text);
+    }
+
+    .naver-rating-box{
+      padding:30px 24px;
+      border-radius:22px;
+      background:#fbfdfb;
+      border:1px solid #deebdf;
+      margin-bottom:22px;
+    }
+
+    .rating-label{
+      display:block;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:0.96rem;
+      font-weight:700;
+    }
+
+    .naver-rating-box strong{
+      display:block;
+      margin-bottom:12px;
+      color:var(--naver);
+      font-size:clamp(2.6rem, 5vw, 4rem);
+      line-height:1;
+      letter-spacing:-0.05em;
+    }
+
+    .rating-desc{
+      margin:0;
+      color:var(--text-soft);
+      font-size:1rem;
+      line-height:1.85;
+    }
+
+    .rating-note{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:0.9rem;
+      line-height:1.75;
+    }
+
+    .naver-review-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .location-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(340px,0.95fr);
+      gap:24px;
+    }
+
+    .map-frame{
+      overflow:hidden;
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:#ddd;
+      min-height:440px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .map-frame iframe{
+      width:100%;
+      height:100%;
+      min-height:440px;
+      border:0;
+      filter:saturate(0.92) contrast(0.98);
+    }
+
+    .location-card{
+      padding:30px 28px;
+      background:
+        linear-gradient(180deg, rgba(248,245,241,0.7) 0%, rgba(255,253,250,1) 100%);
+    }
+
+    .location-card h3{
+      margin:0 0 18px;
+      font-size:1.28rem;
+      line-height:1.45;
+      color:var(--text);
+    }
+
+    .location-list{
+      display:grid;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .location-item{
+      padding-bottom:14px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .location-item:last-child{
+      padding-bottom:0;
+      border-bottom:0;
+    }
+
+    .location-item strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:1rem;
+      line-height:1.5;
+      color:var(--text);
+    }
+
+    .location-item span{
+      color:var(--text-soft);
+      font-size:1rem;
+      line-height:1.8;
+    }
+
+    .map-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .footer{
+      padding:42px 0 120px;
+      border-top:1px solid var(--line);
+      background:#ece6df;
+    }
+
+    .footer strong{
+      display:block;
+      margin-bottom:10px;
+      font-size:1rem;
+      line-height:1.5;
+      color:var(--text);
+    }
+
+    .footer p{
+      margin:0;
+      color:var(--text-soft);
+      line-height:1.9;
+      font-size:0.98rem;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .footer-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(109,98,90,0.12);
+      background:rgba(255,255,255,0.72);
+      color:var(--text);
+      font-size:0.93rem;
+      font-weight:700;
+    }
+
+    .mobile-bar{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:60;
+      background:rgba(255,253,250,0.97);
+      backdrop-filter:blur(12px);
+      border-top:1px solid var(--line);
+      padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+      box-shadow:0 -8px 20px rgba(34,30,26,0.04);
+    }
+
+    .mobile-bar-inner{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:10px;
+    }
+
+    .mobile-bar .btn{
+      min-height:52px;
+      padding:0 10px;
+      font-size:0.94rem;
+      border-radius:14px;
+    }
+
+    @media (max-width:1100px){
+      .hero-grid,
+      .location-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-aside{
+        position:static;
+      }
+    }
+
+    @media (max-width:768px){
+      .container{
+        width:min(calc(100% - 28px), var(--container));
+      }
+
+      .section{
+        padding:72px 0;
+      }
+
+      .topbar-inner{
+        min-height:auto;
+        padding:14px 0 16px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .header-actions{
+        width:100%;
+        justify-content:flex-start;
+        gap:8px;
+      }
+
+      .mini-pill{
+        min-height:42px;
+        padding:0 13px;
+        font-size:0.9rem;
+      }
+
+      .hero{
+        padding:38px 0 26px;
+      }
+
+      .hero-main,
+      .hero-aside{
+        border-radius:24px;
+      }
+
+      .hero-main{
+        padding:32px 22px;
+      }
+
+      .hero-aside{
+        padding:24px 20px;
+      }
+
+      .hero-kicker{
+        font-size:0.94rem;
+        line-height:1.7;
+        margin-bottom:14px;
+      }
+
+      .hero h1{
+        font-size:2.12rem;
+        line-height:1.24;
+        margin-bottom:16px;
+      }
+
+      .hero-desc{
+        font-size:1.04rem;
+        line-height:1.9;
+        margin-bottom:24px;
+      }
+
+      .hero-points{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+        margin-bottom:24px;
+      }
+
+      .hero-point{
+        width:100%;
+        justify-content:flex-start;
+        padding:13px 14px;
+        font-size:0.95rem;
+      }
+
+      .hero-cta{
+        flex-direction:column;
+        gap:10px;
+      }
+
+      .hero-cta .btn,
+      .naver-review-actions .btn,
+      .map-actions .btn{
+        width:100%;
+      }
+
+      .btn{
+        min-height:56px;
+        font-size:1rem;
+      }
+
+      .section-title{
+        text-align:left;
+        margin-bottom:32px;
+      }
+
+      .section-title h2{
+        font-size:1.9rem;
+        line-height:1.35;
+      }
+
+      .section-title p{
+        font-size:1.02rem;
+        line-height:1.9;
+      }
+
+      .summary-grid,
+      .service-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+
+      .summary-card,
+      .service-card,
+      .location-card,
+      .naver-review-card{
+        border-radius:20px;
+      }
+
+      .summary-card,
+      .service-card{
+        padding:24px 20px;
+      }
+
+      .summary-card h3,
+      .service-card h3{
+        font-size:1.12rem;
+        line-height:1.5;
+      }
+
+      .summary-card p,
+      .service-card p{
+        font-size:0.98rem;
+        line-height:1.85;
+      }
+
+      .aside-title{
+        font-size:1.12rem;
+        margin-bottom:14px;
+      }
+
+      .info-item{
+        padding:16px 0;
+      }
+
+      .info-item span{
+        font-size:0.98rem;
+        line-height:1.8;
+      }
+
+      .naver-review-card{
+        padding:26px 18px;
+        text-align:left;
+      }
+
+      .naver-review-badge{
+        font-size:0.86rem;
+      }
+
+      .naver-review-card h3{
+        font-size:1.38rem;
+        line-height:1.45;
+      }
+
+      .naver-rating-box{
+        padding:22px 16px;
+        border-radius:18px;
+      }
+
+      .rating-label{
+        font-size:0.92rem;
+      }
+
+      .naver-rating-box strong{
+        font-size:2.8rem;
+      }
+
+      .rating-desc{
+        font-size:0.98rem;
+        line-height:1.8;
+      }
+
+      .rating-note{
+        font-size:0.84rem;
+        line-height:1.7;
+      }
+
+      .map-frame,
+      .map-frame iframe{
+        min-height:320px;
+      }
+
+      .location-card{
+        padding:24px 20px;
+      }
+
+      .location-card h3{
+        font-size:1.16rem;
+      }
+
+      .location-item span{
+        font-size:0.98rem;
+      }
+
+      .footer{
+        padding:34px 0 108px;
+      }
+
+      .footer-links{
+        gap:8px;
+      }
+
+      .footer-link{
+        font-size:0.88rem;
+      }
+
+      .mobile-bar .btn{
+        font-size:0.9rem;
+        min-height:50px;
+      }
+    }
+
+    @media (max-width:420px){
+      .container{
+        width:min(calc(100% - 22px), var(--container));
+      }
+
+      .hero-main{
+        padding:28px 18px;
+      }
+
+      .hero-aside,
+      .location-card,
+      .summary-card,
+      .service-card,
+      .naver-review-card{
+        padding-left:16px;
+        padding-right:16px;
+      }
+
+      .hero h1{
+        font-size:1.94rem;
+      }
+
+      .section-title h2{
+        font-size:1.72rem;
+      }
+
+      .brand-text strong{
+        font-size:1rem;
+      }
+
+      .brand-text span{
+        font-size:0.87rem;
+      }
+
+      .mobile-bar-inner{
+        gap:8px;
+      }
+
+      .mobile-bar .btn{
+        font-size:0.86rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a
+        href="https://blog.naver.com/yoonsdentalclinic"
+        target="_blank"
+        rel="noopener"
+        class="brand"
+        aria-label="마포연세윤치과 네이버 블로그로 이동"
+      >
+        <div class="brand-mark"><i class="fas fa-tooth"></i></div>
+        <div class="brand-text">
+          <strong>마포연세윤치과</strong>
+          <span>자연치아 보존을 우선으로 생각합니다</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <div class="mini-pill night-pill" aria-label="화요일 야간진료">
+          <i class="fas fa-moon"></i>
+          <span>화요일 20:30까지 진료</span>
+        </div>
+        <div class="mini-pill parking-pill" aria-label="건물 내 무료주차">
+          <i class="fas fa-parking"></i>
+          <span>건물 내 무료주차</span>
+        </div>
+        <a class="mini-pill call-pill" href="tel:02-312-9975" aria-label="전화하기">
+          <i class="fas fa-phone-alt"></i>
+          <span>02-312-9975</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-main">
+            <div class="hero-kicker">
+              <i class="fas fa-check-circle"></i>
+              공덕역·대흥역 인근 · 화요일 야간진료 · 건물 내 무료주차
+            </div>
+
+            <h1>필요한 치료를<br />차분히 설명드리는 치과</h1>
+
+            <p class="hero-desc">
+              마포연세윤치과는 자연치아 보존을 우선으로 생각하며,
+              진료 전 현재 상태와 치료 계획을 이해하기 쉽게 안내해드립니다.
+              임플란트 수술이 필요한 경우에는 구강악안면외과 전문의와 협진하여
+              수술을 진행하고 있습니다.
+            </p>
+
+            <div class="hero-points">
+              <div class="hero-point"><i class="fas fa-tooth"></i> 자연치아 보존 우선</div>
+              <div class="hero-point"><i class="fas fa-comments"></i> 진료 전 충분한 설명</div>
+              <div class="hero-point"><i class="fas fa-user-doctor"></i> 구강악안면외과 전문의 협진</div>
+              <div class="hero-point"><i class="fas fa-parking"></i> 건물 내 무료주차</div>
+            </div>
+
+            <div class="hero-cta">
+              <a
+                class="btn btn-primary"
+                href="https://m.booking.naver.com/booking/6/bizes/158237"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-calendar-check"></i>
+                네이버 예약하기
+              </a>
+              <a class="btn btn-light" href="tel:02-312-9975">
+                <i class="fas fa-phone-alt"></i>
+                전화 문의
+              </a>
+              <a
+                class="btn btn-kakao"
+                href="http://pf.kakao.com/_sxivsn"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-comment"></i>
+                카카오톡 문의
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-aside">
+            <h2 class="aside-title">진료 및 내원 안내</h2>
+
+            <div class="info-list">
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                  <strong>진료시간</strong>
+                  <span>월·목·금 09:30 - 18:30 / 화 09:30 - 20:30 / 토 10:00 - 14:00 / 수·일·공휴일 휴진</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <strong>오시는 길</strong>
+                  <span>서울 마포구 백범로 134-1, 3층 (공덕빌딩)</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-subway"></i></div>
+                <div>
+                  <strong>교통 안내</strong>
+                  <span>공덕역·대흥역 인근에 위치해 대중교통으로도 편하게 방문하실 수 있습니다.</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-parking"></i></div>
+                <div>
+                  <strong>주차 안내</strong>
+                  <span>건물 내 무료주차가 가능합니다. 처음 방문하시는 경우 전화로도 위치 안내를 도와드립니다.</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                <div>
+                  <strong>전화 문의</strong>
+                  <span>02-312-9975</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guide">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow"><i class="fas fa-notes-medical"></i> 진료 전 꼭 확인하실 안내</div>
+          <h2>처음 방문하시는 분도 편안하게 이해하실 수 있도록 안내드립니다</h2>
+          <p>
+            치료를 서두르기보다 현재 상태를 충분히 살펴보고,
+            필요한 내용과 진행 순서를 이해하기 쉽게 설명드리는 데 집중하고 있습니다.
+          </p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <div class="card-icon"><i class="fas fa-tooth"></i></div>
+            <h3>자연치아 보존을 우선으로 생각합니다</h3>
+            <p>
+              치아 상태를 먼저 충분히 살펴보고, 현재 필요한 치료와 경과 관찰이 가능한 부분을 구분해 안내해드립니다.
+            </p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-icon"><i class="fas fa-comments"></i></div>
+            <h3>진료 과정을 이해하기 쉽게 설명드립니다</h3>
+            <p>
+              치료 전 현재 상태, 예상되는 진료 과정, 내원 일정 등을 차분히 설명드려 처음 오시는 분도 편안하게 상담받으실 수 있습니다.
+            </p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-icon"><i class="fas fa-user-doctor"></i></div>
+            <h3>임플란트 수술은 협진 체계로 진행합니다</h3>
+            <p>
+              임플란트 수술이 필요한 경우 구강악안면외과 전문의와 협진하여
+              환자 상태에 맞는 진료 방향을 안내하고 수술을 진행합니다.
+            </p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-icon"><i class="fas fa-parking"></i></div>
+            <h3>건물 내 무료주차가 가능합니다</h3>
+            <p>
+              차량 이용 시 건물 내 주차가 가능해 보다 편하게 방문하실 수 있습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section review-section" id="reviews">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow"><i class="fas fa-star"></i> 네이버 리뷰 안내</div>
+          <h2>방문자 평가는 네이버에서 직접 확인해보세요</h2>
+          <p>
+            홈페이지 내 후기 문구 대신,
+            네이버에 등록된 별점과 리뷰를 직접 확인하실 수 있도록 안내드립니다.
+          </p>
+        </div>
+
+        <div class="naver-review-wrap">
+          <article class="naver-review-card" aria-label="네이버 리뷰 안내 카드">
+            <div class="naver-review-badge"><i class="fas fa-n"></i> NAVER REVIEW</div>
+            <h3>마포연세윤치과 네이버 리뷰</h3>
+
+            <div class="naver-rating-box">
+              <span class="rating-label">네이버 평균별점</span>
+              <strong>4.8</strong>
+              <p class="rating-desc">자세한 리뷰와 최신 평가는 네이버에서 직접 확인해주세요.</p>
+              <p class="rating-note">별점 및 리뷰 정보는 플랫폼 운영 정책에 따라 변동될 수 있습니다.</p>
+            </div>
+
+            <div class="naver-review-actions">
+              <a
+                class="btn btn-primary"
+                href="https://pcmap.place.naver.com/hospital/37912579/review/visitor?additionalHeight=76&entry=plt&fromPanelNum=1&locale=ko&svcName=map_pcv5&timestamp=202604101605"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-star"></i>
+                네이버 리뷰 보러가기
+              </a>
+
+              <a
+                class="btn btn-light"
+                href="https://m.booking.naver.com/booking/6/bizes/158237"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-calendar-check"></i>
+                네이버 예약하기
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow"><i class="fas fa-stethoscope"></i> 진료 안내</div>
+          <h2>현재 상태에 맞는 진료 방향을 함께 안내드립니다</h2>
+          <p>
+            검진 결과를 바탕으로 현재 필요한 치료와 우선순위를 설명드리고,
+            내원 일정과 관리 방법도 함께 안내해드립니다.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="card-icon"><i class="fas fa-leaf"></i></div>
+            <h3>자연치아 보존 진료</h3>
+            <p>
+              충치와 잇몸 상태를 확인한 뒤, 가능한 범위에서 자연치아를 보존하는 방향을 우선적으로 안내합니다.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="card-icon"><i class="fas fa-teeth"></i></div>
+            <h3>디지털 교정 상담</h3>
+            <p>
+              치아 배열과 교합 상태를 살펴본 후, 현재 상태에 맞는 교정 가능 여부와 예상 과정을 설명드립니다.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="card-icon"><i class="fas fa-tooth"></i></div>
+            <h3>임플란트 및 보철 진료 안내</h3>
+            <p>
+              치아 상실 부위와 주변 상태를 확인한 뒤, 임플란트 수술이 필요한 경우
+              구강악안면외과 전문의와 협진하여 진료 방향을 안내해드립니다.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="card-icon"><i class="fas fa-sun"></i></div>
+            <h3>치아미백 및 심미 진료</h3>
+            <p>
+              현재 치아 색과 상태를 고려해 무리하지 않는 범위에서 심미 진료 방향을 안내드립니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="location">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow"><i class="fas fa-map-marker-alt"></i> 오시는 길</div>
+          <h2>공덕역·대흥역 인근, 편하게 방문하실 수 있습니다</h2>
+          <p>
+            공덕역과 대흥역에서 모두 가까우며,
+            차량 이용 시 건물 내 무료주차도 가능합니다.
+          </p>
+        </div>
+
+        <div class="location-grid">
+          <div class="map-frame">
+            <iframe
+              src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EB%B0%B1%EB%B2%94%EB%A1%9C%20134-1&z=16&output=embed"
+              loading="lazy"
+              allowfullscreen
+              title="마포연세윤치과 위치 지도"
+            ></iframe>
+          </div>
+
+          <article class="location-card">
+            <h3>마포연세윤치과 오시는 길</h3>
+
+            <div class="location-list">
+              <div class="location-item">
+                <strong>주소</strong>
+                <span>서울 마포구 백범로 134-1, 3층 (공덕빌딩)</span>
+              </div>
+
+              <div class="location-item">
+                <strong>전화번호</strong>
+                <span>02-312-9975</span>
+              </div>
+
+              <div class="location-item">
+                <strong>진료시간</strong>
+                <span>월·목·금 09:30 - 18:30 / 화 09:30 - 20:30 / 토 10:00 - 14:00 / 수·일·공휴일 휴진</span>
+              </div>
+
+              <div class="location-item">
+                <strong>주차</strong>
+                <span>건물 내 무료주차가 가능합니다.</span>
+              </div>
+            </div>
+
+            <div class="map-actions">
+              <a
+                class="btn btn-light"
+                href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EB%B0%B1%EB%B2%94%EB%A1%9C%20134-1"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-map-marked-alt"></i>
+                네이버지도
+              </a>
+
+              <a
+                class="btn btn-light"
+                href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EB%B0%B1%EB%B2%94%EB%A1%9C%20134-1"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-location-arrow"></i>
+                카카오맵
+              </a>
+
+              <a
+                class="btn btn-primary"
+                href="https://m.booking.naver.com/booking/6/bizes/158237"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fas fa-calendar-check"></i>
+                예약하기
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>마포연세윤치과의원</strong>
+      <p>서울 마포구 백범로 134-1, 3층 (공덕빌딩) · TEL. 02-312-9975</p>
+
+      <div class="footer-links">
+        <a
+          class="footer-link"
+          href="https://blog.naver.com/yoonsdentalclinic"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fas fa-blog"></i>
+          네이버 블로그
+        </a>
+        <a
+          class="footer-link"
+          href="https://m.booking.naver.com/booking/6/bizes/158237"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fas fa-calendar-check"></i>
+          네이버 예약
+        </a>
+        <a
+          class="footer-link"
+          href="http://pf.kakao.com/_sxivsn"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fas fa-comment"></i>
+          카카오톡 문의
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="빠른 문의 및 예약">
+    <div class="mobile-bar-inner">
+      <a class="btn btn-light" href="tel:02-312-9975">
+        <i class="fas fa-phone-alt"></i>
+        전화
+      </a>
+      <a
+        class="btn btn-primary"
+        href="https://m.booking.naver.com/booking/6/bizes/158237"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fas fa-calendar-check"></i>
+        예약
+      </a>
+      <a
+        class="btn btn-kakao"
+        href="http://pf.kakao.com/_sxivsn"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fas fa-comment"></i>
+        카카오톡
+      </a>
+    </div>
+  </div>
+</body>
+</html>
