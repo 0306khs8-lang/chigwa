@@ -136,7 +136,6 @@
       gap:20px;
     }
 
-    /* SEO 개선: h1 태그 추가를 위한 스타일 */
     .site-title {
       margin: 0;
       padding: 0;
@@ -180,62 +179,6 @@
     /* ===================== HERO ===================== */
     .hero{
       padding:0 0 0;
-    }
-
-    /* ===================== HERO ASIDE (진료안내 패널) ===================== */
-    .hero-aside{
-      background:var(--surface);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      box-shadow:var(--shadow-sm);
-    }
-
-    .hero-aside-inner{
-      width:min(calc(100% - 48px), var(--container));
-      margin:0 auto;
-      padding:36px 0;
-      display:grid;
-      grid-template-columns:repeat(5, 1fr);
-      gap:0;
-    }
-
-    .info-item{
-      display:flex;
-      align-items:flex-start;
-      gap:14px;
-      padding:0 28px;
-      border-right:1px solid var(--line);
-    }
-
-    .info-item:first-child{ padding-left:0; }
-    .info-item:last-child{ border-right:0; }
-
-    .info-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:var(--surface-soft);
-      color:var(--primary);
-      flex-shrink:0;
-      font-size:0.98rem;
-      border:1px solid rgba(109,98,90,0.06);
-    }
-
-    .info-item strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:0.95rem;
-      line-height:1.5;
-      color:var(--text);
-    }
-
-    .info-item span{
-      display:block;
-      color:var(--text-soft);
-      font-size:0.88rem;
-      line-height:1.7;
     }
 
     /* ===================== HERO SLIDER ===================== */
@@ -354,30 +297,6 @@
       width:26px;
       border-radius:4px;
       background:#fff;
-    }
-
-    .hero-points{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      padding:24px min(calc((100% - min(calc(100% - 48px), var(--container))) / 2), 24px);
-      padding-left:max(calc((100% - min(calc(100% - 48px), var(--container))) / 2), 0px);
-      background:var(--surface-soft);
-      border-bottom:1px solid var(--line);
-    }
-
-    .hero-point{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 15px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid var(--line);
-      color:var(--text);
-      font-size:0.94rem;
-      font-weight:700;
-      line-height:1.5;
     }
 
     .btn{
@@ -699,25 +618,11 @@
       .location-grid{
         grid-template-columns:1fr;
       }
-
-      .hero-aside-inner{
-        grid-template-columns:repeat(3, 1fr);
-        gap:16px;
-      }
-
-      .info-item{
-        padding:0 16px;
-        border-right:1px solid var(--line);
-      }
-
-      .info-item:nth-child(3){ border-right:0; }
-      .info-item:nth-child(4){ padding-left:0; border-right:1px solid var(--line); }
-      .info-item:nth-child(5){ border-right:0; }
     }
 
     @media (max-width:768px){
       html {
-        scroll-padding-top: 70px; /* UX 개선: 모바일 상단 여백 보정 */
+        scroll-padding-top: 70px;
       }
 
       .container{
@@ -760,7 +665,6 @@
         padding:0;
       }
 
-      /* 비율 개선: 세로 칸을 줄여 원본 이미지 비율에 맞춤 */
       .hero-slider{
         aspect-ratio: 21/9; 
       }
@@ -780,33 +684,6 @@
 
       .slider-btn.prev{ left:10px; }
       .slider-btn.next{ right:10px; }
-
-      .hero-aside-inner{
-        grid-template-columns:1fr;
-        padding:20px 0;
-        gap:0;
-      }
-
-      .info-item{
-        padding:14px 0;
-        border-right:0;
-        border-bottom:1px solid var(--line);
-      }
-
-      .info-item:last-child{
-        border-bottom:0;
-        padding-bottom:0;
-      }
-
-      .hero-points{
-        gap:8px;
-        padding:16px 14px;
-      }
-
-      .hero-point{
-        font-size:0.88rem;
-        padding:9px 12px;
-      }
 
       .naver-review-actions .btn,
       .map-actions .btn{
@@ -861,15 +738,6 @@
       .service-card p{
         font-size:0.98rem;
         line-height:1.85;
-      }
-
-      .info-item{
-        padding:16px 0;
-      }
-
-      .info-item span{
-        font-size:0.98rem;
-        line-height:1.8;
       }
 
       .naver-review-card{
@@ -974,7 +842,6 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <!-- SEO 개선: 사이트 로고를 h1으로 묶어 검색엔진이 핵심 페이지로 인지하게 함 -->
       <h1 class="site-title">
         <a href="#top" class="brand" aria-label="마포연세윤치과 메인으로 이동">
           <img src="https://github.com/user-attachments/assets/76d4613c-3c57-4c34-b154-8fc8b6320cf4" alt="마포연세윤치과 로고" />
@@ -998,7 +865,6 @@
       <div class="hero-slider-wrap">
       <div class="hero-slider" id="heroSlider" aria-label="치과 이미지 슬라이더">
         <div class="hero-slides" id="heroSlides">
-          <!-- 경로 수정 적용 완료 -->
           <div class="hero-slide">
             <img
               src="slide1.jpg"
@@ -1036,108 +902,6 @@
         </div>
       </div>
       </div><!-- /hero-slider-wrap -->
-
-      <!-- 포인트 배지 -->
-      <div class="hero-points">
-        <div class="hero-point"><i class="fas fa-tooth"></i> 자연치아 보존 우선</div>
-        <div class="hero-point"><i class="fas fa-comments"></i> 진료 전 충분한 설명</div>
-        <div class="hero-point"><i class="fas fa-user-doctor"></i> 구강악안면외과 전문의 협진</div>
-        <div class="hero-point"><i class="fas fa-parking"></i> 건물 내 무료주차</div>
-        <div class="hero-point"><i class="fas fa-moon"></i> 화요일 야간진료</div>
-      </div>
-
-      <!-- 진료 및 내원 안내 -->
-      <aside class="hero-aside">
-        <div class="hero-aside-inner">
-          <div class="info-item">
-            <div class="info-icon"><i class="fas fa-clock"></i></div>
-            <div>
-              <strong>진료시간</strong>
-              <span>월·목·금 09:30–18:30<br/>화 09:30–20:30 / 토 10:00–14:00<br/>수·일·공휴일 휴진</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <strong>오시는 길</strong>
-              <span>서울 마포구 백범로 134-1<br/>3층 (공덕빌딩)</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon"><i class="fas fa-subway"></i></div>
-            <div>
-              <strong>교통 안내</strong>
-              <span>공덕역·대흥역 인근<br/>대중교통으로 편하게 방문 가능</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon"><i class="fas fa-parking"></i></div>
-            <div>
-              <strong>주차 안내</strong>
-              <span>건물 내 무료주차 가능<br/>전화로 위치 안내도 가능</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-            <div>
-              <strong>전화 문의</strong>
-              <span>02-312-9975</span>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="section" id="guide">
-      <div class="container">
-        <div class="section-title">
-          <div class="eyebrow"><i class="fas fa-notes-medical"></i> 진료 전 꼭 확인하실 안내</div>
-          <h2>처음 방문하시는 분도 편안하게 이해하실 수 있도록 안내드립니다</h2>
-          <p>
-            치료를 서두르기보다 현재 상태를 충분히 살펴보고,
-            필요한 내용과 진행 순서를 이해하기 쉽게 설명드리는 데 집중하고 있습니다.
-          </p>
-        </div>
-
-        <div class="summary-grid">
-          <article class="summary-card">
-            <div class="card-icon"><i class="fas fa-tooth"></i></div>
-            <h3>자연치아 보존을 우선으로 생각합니다</h3>
-            <p>
-              치아 상태를 먼저 충분히 살펴보고, 현재 필요한 치료와 경과 관찰이 가능한 부분을 구분해 안내해드립니다.
-            </p>
-          </article>
-
-          <article class="summary-card">
-            <div class="card-icon"><i class="fas fa-comments"></i></div>
-            <h3>진료 과정을 이해하기 쉽게 설명드립니다</h3>
-            <p>
-              치료 전 현재 상태, 예상되는 진료 과정, 내원 일정 등을 차분히 설명드려 처음 오시는 분도 편안하게 상담받으실 수 있습니다.
-            </p>
-          </article>
-
-          <article class="summary-card">
-            <div class="card-icon"><i class="fas fa-user-doctor"></i></div>
-            <h3>임플란트 수술은 협진 체계로 진행합니다</h3>
-            <p>
-              임플란트 수술이 필요한 경우 구강악안면외과 전문의와 협진하여
-              환자 상태에 맞는 진료 방향을 안내하고 수술을 진행합니다.
-            </p>
-          </article>
-
-          <article class="summary-card">
-            <div class="card-icon"><i class="fas fa-parking"></i></div>
-            <h3>건물 내 무료주차가 가능합니다</h3>
-            <p>
-              차량 이용 시 건물 내 주차가 가능해 보다 편하게 방문하실 수 있습니다.
-            </p>
-          </article>
-        </div>
-      </div>
     </section>
 
     <section class="section review-section" id="reviews">
@@ -1453,7 +1217,6 @@
       padding:22px 22px 20px;
     }
 
-    /* 팝업 UX 개선: 오늘 하루 보지 않기 등 영역 정리 */
     .clinic-popup-footer {
       display: flex;
       flex-direction: column;
@@ -1567,7 +1330,6 @@
             </button>
           </div>
           
-          <!-- UX 개선: 오늘 하루 보지 않기 -->
           <div class="clinic-popup-checkbox-wrap">
             <input type="checkbox" id="hidePopupToday">
             <label for="hidePopupToday">오늘 하루 보지 않기</label>
@@ -1579,7 +1341,7 @@
 
   <!-- ===================== 스크립트 ===================== -->
   <script>
-    /* ---- 팝업 (오늘 하루 보지 않기 기능 추가) ---- */
+    /* ---- 팝업 ---- */
     (function () {
       const overlay = document.getElementById('clinicPopupOverlay');
       const closeBtn = document.getElementById('clinicPopupClose');
@@ -1597,7 +1359,6 @@
       function closePopup() {
         if (!overlay) return;
 
-        // 체크박스가 체크되어 있다면 localStorage에 오늘 날짜 저장
         if (hideTodayCheckbox && hideTodayCheckbox.checked) {
           const today = new Date();
           const dateString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -1609,7 +1370,6 @@
         document.body.style.overflow = '';
       }
 
-      // localStorage에서 날짜 확인하여 오늘 날짜가 아니면 팝업 띄우기
       const hideDate = localStorage.getItem(storageKey);
       const today = new Date();
       const todayString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -1662,11 +1422,9 @@
         autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
       }
 
-      /* 버튼 */
       prevBtn.addEventListener('click', function () { goTo(current - 1); startAuto(); });
       nextBtn.addEventListener('click', function () { goTo(current + 1); startAuto(); });
 
-      /* 인디케이터 */
       dots.forEach(function(dot) {
         dot.addEventListener('click', function () {
           goTo(parseInt(this.dataset.index, 10));
@@ -1674,7 +1432,6 @@
         });
       });
 
-      /* 터치 스와이프 */
       slides.addEventListener('touchstart', function(e) {
         isDragging = true;
         startX = e.touches[0].clientX;
@@ -1698,11 +1455,9 @@
         startAuto();
       });
 
-      /* 마우스 호버 시 정지 */
       sliderEl.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
       sliderEl.addEventListener('mouseleave', startAuto);
 
-      /* 초기화 */
       goTo(0);
       startAuto();
     })();
