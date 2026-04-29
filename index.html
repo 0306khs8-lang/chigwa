@@ -335,6 +335,100 @@
       color:var(--kakao-text);
     }
 
+    /* ===================== 진료과목 (Subjects) ===================== */
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .subject-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;      /* 내부 콘텐츠 가로 중앙 정렬 */
+      text-align: center;       /* 텍스트 중앙 정렬 */
+      padding: 40px 20px 36px;  /* 카드 내부 여백 */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* 이미지 원형 프레임 처리 (181x181) */
+    .subject-img {
+      display: block;
+      width: 181px;
+      height: 181px;
+      border-radius: 50%;
+      background: var(--surface-deep);
+      overflow: hidden;
+      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+
+    .subject-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .subject-card:hover .subject-img img {
+      transform: scale(1.05);
+    }
+
+    .subject-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .subject-content h3 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .subject-content p {
+      margin: 0 0 20px;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .subject-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: color 0.2s ease;
+    }
+
+    .subject-link i {
+      font-size: 0.85rem;
+      transition: transform 0.2s ease;
+    }
+
+    .subject-card:hover .subject-link {
+      color: var(--text);
+    }
+
+    .subject-card:hover .subject-link i {
+      transform: translateX(4px);
+    }
+
+    /* ===================== 기타 섹션 ===================== */
     .summary-grid,
     .service-grid{
       display:grid;
@@ -618,6 +712,9 @@
       .location-grid{
         grid-template-columns:1fr;
       }
+      .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width:768px){
@@ -710,12 +807,18 @@
         line-height:1.9;
       }
 
+      .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
       .summary-grid,
       .service-grid{
         grid-template-columns:1fr;
         gap:16px;
       }
 
+      .subject-card,
       .summary-card,
       .service-card,
       .location-card,
@@ -843,18 +946,20 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <h1 class="site-title">
-        <a href="#top" class="brand" aria-label="마포연세윤치과 메인으로 이동">
+        <a href="index.html" class="brand" aria-label="마포연세윤치과 메인으로 이동">
           <img src="https://github.com/user-attachments/assets/76d4613c-3c57-4c34-b154-8fc8b6320cf4" alt="마포연세윤치과 로고" />
         </a>
       </h1>
 
+      <!-- 메뉴 링크들도 서브페이지 URL로 수정 -->
       <nav class="nav-menu">
-        <a href="#top" class="nav-link">치과소개</a>
-        <a href="#service-ortho" class="nav-link">치아교정</a>
-        <a href="#service-implant" class="nav-link">임플란트</a>
-        <a href="#service-decay" class="nav-link">충치치료</a>
-        <a href="#service-decay" class="nav-link">잇몸치료</a>
-        <a href="#service-whitening" class="nav-link">치아미백</a>
+        <a href="index.html" class="nav-link">치과소개</a>
+        <a href="#subjects" class="nav-link">진료과목</a>
+        <a href="ortho.html" class="nav-link">치아교정</a>
+        <a href="implant.html" class="nav-link">임플란트</a>
+        <a href="decay.html" class="nav-link">충치치료</a>
+        <a href="gum.html" class="nav-link">잇몸치료</a>
+        <a href="whitening.html" class="nav-link">치아미백</a>
       </nav>
     </div>
   </header>
@@ -904,6 +1009,91 @@
       </div><!-- /hero-slider-wrap -->
     </section>
 
+    <!-- ===================== 진료과목 섹션 ===================== -->
+    <section class="section" id="subjects">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow"><i class="fas fa-tooth"></i> 진료과목</div>
+          <h2>마포연세윤치과 진료과목</h2>
+          <p>환자분들의 치아 건강을 위해 다양한 맞춤 진료를 제공합니다.</p>
+        </div>
+
+        <div class="subject-grid">
+          <!-- 진료과목 1 -->
+          <article class="subject-card">
+            <!-- 이미지를 a 태그로 감싸 클릭 시 페이지 이동 -->
+            <a href="ortho.html" class="subject-img" aria-label="치아교정 페이지로 이동">
+              <img src="subject-1.png" alt="치아교정" loading="lazy" />
+            </a>
+            <div class="subject-content">
+              <h3>치아교정</h3>
+              <p>환자의 상황과 필요에 따라<br/>다양한 교정 선택</p>
+              <a href="ortho.html" class="subject-link">
+                자세히보기 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 진료과목 2 -->
+          <article class="subject-card">
+            <a href="implant.html" class="subject-img" aria-label="임플란트 페이지로 이동">
+              <img src="subject-2.png" alt="임플란트" loading="lazy" />
+            </a>
+            <div class="subject-content">
+              <h3>임플란트</h3>
+              <p>상실한 치아의 기능을 회복하기 위한<br/>인공치아 식립술</p>
+              <a href="implant.html" class="subject-link">
+                자세히보기 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 진료과목 3 -->
+          <article class="subject-card">
+            <a href="decay.html" class="subject-img" aria-label="충치치료 페이지로 이동">
+              <img src="subject-3.png" alt="충치치료" loading="lazy" />
+            </a>
+            <div class="subject-content">
+              <h3>충치치료</h3>
+              <p>간단한 레진치료부터 신경치료까지<br/>최대한 자연치아 살리는데에 집중합니다.</p>
+              <a href="decay.html" class="subject-link">
+                자세히보기 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 진료과목 4 -->
+          <article class="subject-card">
+            <a href="gum.html" class="subject-img" aria-label="잇몸치료 페이지로 이동">
+              <img src="subject-4.png" alt="잇몸치료" loading="lazy" />
+            </a>
+            <div class="subject-content">
+              <h3>잇몸치료</h3>
+              <p>붓고, 피나고,<br/>아픈 잇몸을 건강하게!</p>
+              <a href="gum.html" class="subject-link">
+                자세히보기 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 진료과목 5 -->
+          <article class="subject-card">
+            <a href="whitening.html" class="subject-img" aria-label="치아미백 페이지로 이동">
+              <img src="subject-5.png" alt="치아미백" loading="lazy" />
+            </a>
+            <div class="subject-content">
+              <h3>치아미백</h3>
+              <p>자신 있는 밝은 미소를 위한<br/>첫걸음</p>
+              <a href="whitening.html" class="subject-link">
+                자세히보기 <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 네이버 리뷰 안내 섹션 -->
     <section class="section review-section" id="reviews">
       <div class="container">
         <div class="section-title">
@@ -953,6 +1143,7 @@
       </div>
     </section>
 
+    <!-- 이전 진료 안내 섹션 (기존 서비스 카드) -->
     <section class="section" id="services">
       <div class="container">
         <div class="section-title">
