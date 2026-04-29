@@ -148,6 +148,14 @@
       object-fit:contain;
     }
 
+    .brand-text{
+      font-size:1.22rem;
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-0.03em;
+      white-space:nowrap;
+    }
+
     .nav-menu{
       display:flex;
       align-items:center;
@@ -231,48 +239,68 @@
     }
 
     /* ===================== HERO SLIDER ===================== */
+    /* 슬라이더 wrapper: 가로 최대 너비 제한 */
+    .hero-slider-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      background:#0d1b3e;
+    }
+
     .hero-slider{
       position:relative;
       width:100%;
+      max-width:1400px;   /* 대형 모니터에서 무한 확장 방지 */
       border-radius:0;
-      /* overflow:hidden 대신 clip 사용 — 귀퉁이 새어나옴 완전 차단 */
       overflow:clip;
       margin-bottom:0;
-      background:#f0ece7;
-      /* 큰 모니터에서 뷰포트 높이의 70% 이상 차지하지 않도록 제한 */
-      max-height:80vh;
+      background:#b8d8e8;
+      aspect-ratio:21/9;  /* 슬라이드2 원본 비율(약 2.28:1)에 맞춤 */
     }
 
     .hero-slides{
       display:flex;
-      /* 슬라이드 전체 너비를 정확히 계산 */
       width:100%;
       height:100%;
       transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       will-change:transform;
-      /* 혹시 모를 overflow 차단 */
-      overflow:visible;
     }
 
     .hero-slide{
-      /* 부모 너비의 정확히 100%를 차지 */
       width:100%;
       min-width:100%;
       flex:0 0 100%;
+      height:100%;
       position:relative;
       overflow:hidden;
       flex-shrink:0;
     }
 
+    /* picture 태그도 block으로 꽉 채움 */
+    .hero-slide picture{
+      display:block;
+      width:100%;
+      height:100%;
+    }
+
     .hero-slide img{
       width:100%;
-      height:auto;
-      max-height:80vh;
-      object-fit:contain;
+      height:100%;
+      object-fit:cover;
       object-position:center center;
       display:block;
       user-select:none;
       -webkit-user-drag:none;
+    }
+
+    /* 슬라이드2: 원본 가로배너 비율 → contain으로 잘림 없이 전체 표시 */
+    .hero-slide.slide-contain img{
+      object-fit:contain;
+      object-position:center center;
+      background:#b8d8e8;
+    }
+    .hero-slide.slide-contain picture{
+      background:#b8d8e8;
     }
 
     /* 슬라이더 화살표 버튼 */
@@ -331,6 +359,119 @@
       width:26px;
       border-radius:4px;
       background:#fff;
+    }
+    /* ===================== 슬라이드 텍스트 오버레이 ===================== */
+    .slide-overlay{
+      position:absolute;
+      inset:0;
+      z-index:5;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      pointer-events:none;
+    }
+
+    /* 슬라이드 1: 왼쪽 텍스트 + 오른쪽 여백 */
+    .slide-overlay-left{
+      padding:0 52% 0 6%;
+    }
+
+    /* 슬라이드 2: 왼쪽 텍스트 + 오른쪽 여백 */
+    .slide-overlay-left2{
+      padding:0 48% 0 6%;
+    }
+
+    /* 슬라이드 3: 중앙 정렬 */
+    .slide-overlay-center{
+      align-items:center;
+      padding:0 10%;
+      text-align:center;
+    }
+
+    .slide-eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.18);
+      color:#fff;
+      font-size:0.82rem;
+      font-weight:700;
+      letter-spacing:0.02em;
+      margin-bottom:12px;
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,0.25);
+      width:fit-content;
+    }
+
+    .slide-title{
+      margin:0 0 10px;
+      font-size:clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight:900;
+      line-height:1.28;
+      letter-spacing:-0.03em;
+      color:#fff;
+      text-shadow:0 2px 12px rgba(0,0,0,0.22);
+    }
+
+    .slide-desc{
+      margin:0;
+      font-size:clamp(0.85rem, 1.4vw, 1rem);
+      font-weight:500;
+      line-height:1.7;
+      color:rgba(255,255,255,0.88);
+      text-shadow:0 1px 6px rgba(0,0,0,0.18);
+    }
+
+    /* 슬라이드 3 진료시간 박스 */
+    .slide-schedule{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+      justify-content:center;
+    }
+
+    .slide-schedule-item{
+      padding:8px 14px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.28);
+      color:#fff;
+      font-size:0.82rem;
+      font-weight:700;
+      line-height:1.5;
+      backdrop-filter:blur(6px);
+      white-space:nowrap;
+    }
+
+    .slide-schedule-item.highlight{
+      background:rgba(0,188,188,0.25);
+      border-color:rgba(0,220,220,0.4);
+      color:#aff5f5;
+    }
+
+    @media(max-width:600px){
+      .slide-overlay-left,
+      .slide-overlay-left2{
+        padding:0 5% 0 5%;
+        justify-content:flex-end;
+        padding-bottom:12%;
+      }
+
+      .slide-overlay-center{
+        justify-content:flex-end;
+        padding-bottom:10%;
+      }
+
+      .slide-title{
+        font-size:clamp(1.2rem, 5.5vw, 1.7rem);
+      }
+
+      .slide-desc{
+        font-size:0.84rem;
+      }
     }
     /* ===================== END HERO SLIDER ===================== */
 
@@ -788,15 +929,16 @@
         padding:0;
       }
 
-      /* 모바일 슬라이더 */
+      /* 모바일(600px 이하): 세로 이미지로 교체되므로 비율도 9:16으로 전환 */
       .hero-slider{
-        max-height:none;
+        aspect-ratio:9/16;
       }
 
+      .hero-slide picture,
       .hero-slide img{
         width:100%;
-        height:auto;
-        max-height:none;
+        height:100%;
+        object-fit:cover;
       }
 
       .slider-btn{
@@ -1032,26 +1174,30 @@
   <main id="top">
     <section class="hero">
       <!-- 풀 와이드 슬라이더 -->
+      <div class="hero-slider-wrap">
       <div class="hero-slider" id="heroSlider" aria-label="치과 이미지 슬라이더">
         <div class="hero-slides" id="heroSlides">
+          <!-- 슬라이드 1: 꼭 필요한 치료만 -->
           <div class="hero-slide">
             <img
-              src="https://www.genspark.ai/api/files/s/bfV3Z51I"
+              src="images/slide1.jpg"
               alt="꼭 필요한 치료만 차분히 설명 드립니다"
               loading="eager"
             />
           </div>
-          <div class="hero-slide">
+          <!-- 슬라이드 2: 자연치아 보존 -->
+          <div class="hero-slide slide-contain">
             <img
-              src="https://www.genspark.ai/api/files/s/GX4n8929"
-              alt="자연치아를 소중히 여기며 발치없이 오래 살리는 치과"
-              loading="lazy"
+              src="images/slide2.jpg?v=2"
+              alt="자연치아를 최대한 보존합니다"
+              loading="eager"
             />
           </div>
+          <!-- 슬라이드 3: 진료 시간 안내 -->
           <div class="hero-slide">
             <img
-              src="https://www.genspark.ai/api/files/s/r6HSjT3o?cache_control=3600"
-              alt="토요일진료 화요일야간진료 안내"
+              src="images/slide3.jpg"
+              alt="화요일 야간 및 토요일 진료 안내"
               loading="lazy"
             />
           </div>
@@ -1070,6 +1216,7 @@
           <button class="slider-dot" data-index="2" role="tab" aria-label="슬라이드 3" aria-selected="false"></button>
         </div>
       </div>
+      </div><!-- /hero-slider-wrap -->
 
       <!-- 포인트 배지 -->
       <div class="hero-points">
