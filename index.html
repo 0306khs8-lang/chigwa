@@ -423,6 +423,14 @@
       letter-spacing: -0.02em;
     }
 
+    .subject-content p {
+      margin: 0 0 20px;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
     .subject-link {
       display: inline-flex;
       align-items: center;
@@ -808,6 +816,21 @@
       display: block;
     }
 
+    /* 가로 연속 보기 (의료진 소개용) */
+    .modal-horizontal {
+      display: flex;
+      overflow-x: auto;
+      width: 100%;
+      max-height: 90vh;
+      -webkit-overflow-scrolling: touch;
+    }
+    .modal-horizontal img {
+      width: 50%;
+      flex-shrink: 0;
+      object-fit: contain;
+      display: block;
+    }
+
     /* ===================== RESPONSIVE ===================== */
     @media (max-width:1100px){
       .location-grid{
@@ -914,12 +937,38 @@
         border-radius: 16px;
       }
 
+      /* 진료과목 모바일 2열 배치 적용 */
       .subject-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
-      .subject-card,
+      .subject-card {
+        padding: 24px 14px;
+        border-radius: 18px;
+      }
+
+      .subject-img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 16px;
+      }
+
+      .subject-content h3 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+
+      .subject-content p {
+        font-size: 0.82rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
+
+      .subject-link {
+        font-size: 0.85rem;
+      }
+
       .location-card,
       .naver-review-card{
         border-radius:20px;
@@ -984,6 +1033,17 @@
       .mobile-bar .btn{
         font-size:0.9rem;
         min-height:50px;
+      }
+
+      /* 모바일 의료진 소개 팝업 (세로 스크롤 방식으로 수정) */
+      .modal-horizontal {
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .modal-horizontal img {
+        width: 100%;
+        height: auto;
       }
     }
 
@@ -1100,6 +1160,7 @@
             </div>
             <div class="subject-content">
               <h3>치아교정</h3>
+              <p>환자의 상황과 필요에 따라<br/>다양한 교정 선택</p>
               <div class="subject-link">
                 자세히보기 <i class="fas fa-arrow-right"></i>
               </div>
@@ -1113,6 +1174,7 @@
             </div>
             <div class="subject-content">
               <h3>임플란트</h3>
+              <p>상실한 치아의 기능을 회복하기 위한<br/>인공치아 식립술</p>
               <div class="subject-link">
                 자세히보기 <i class="fas fa-arrow-right"></i>
               </div>
@@ -1126,6 +1188,7 @@
             </div>
             <div class="subject-content">
               <h3>충치치료</h3>
+              <p>간단한 레진치료부터 신경치료까지<br/>최대한 자연치아 살리는데에 집중합니다.</p>
               <div class="subject-link">
                 자세히보기 <i class="fas fa-arrow-right"></i>
               </div>
@@ -1139,6 +1202,7 @@
             </div>
             <div class="subject-content">
               <h3>잇몸치료</h3>
+              <p>붓고, 피나고,<br/>아픈 잇몸을 건강하게!</p>
               <div class="subject-link">
                 자세히보기 <i class="fas fa-arrow-right"></i>
               </div>
@@ -1152,6 +1216,7 @@
             </div>
             <div class="subject-content">
               <h3>치아미백</h3>
+              <p>자신 있는 밝은 미소를 위한<br/>첫걸음</p>
               <div class="subject-link">
                 자세히보기 <i class="fas fa-arrow-right"></i>
               </div>
@@ -1431,11 +1496,12 @@
     </div>
   </div>
 
-  <!-- 6. 의료진 소개 팝업 (세로 연속 스크롤로 수정) -->
+  <!-- 6. 의료진 소개 팝업 -->
   <div class="custom-modal-overlay" id="modal-doctors">
     <div class="custom-modal-content">
       <button class="custom-modal-close"><i class="fas fa-times"></i></button>
-      <div class="modal-vertical">
+      <!-- PC에서는 가로(flex row), 모바일에서는 세로(flex column)로 스크롤되도록 적용됨 -->
+      <div class="modal-horizontal">
         <img src="doc1.png" alt="의료진 1">
         <img src="doc2.png" alt="의료진 2">
       </div>
