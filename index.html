@@ -685,7 +685,7 @@
       border-radius:14px;
     }
 
-    /* ===================== 커스텀 모달 (진료과목 팝업) ===================== */
+    /* ===================== 커스텀 모달 (진료과목 팝업 등) ===================== */
     .custom-modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -816,21 +816,6 @@
       display: block;
     }
 
-    /* 가로 연속 보기 (의료진 소개용) */
-    .modal-horizontal {
-      display: flex;
-      overflow-x: auto;
-      width: 100%;
-      max-height: 90vh;
-      -webkit-overflow-scrolling: touch;
-    }
-    .modal-horizontal img {
-      width: 50%;
-      flex-shrink: 0;
-      object-fit: contain;
-      display: block;
-    }
-
     /* ===================== RESPONSIVE ===================== */
     @media (max-width:1100px){
       .location-grid{
@@ -887,7 +872,7 @@
       }
 
       .hero-slider{
-        aspect-ratio: 21/9; 
+        aspect-ratio: 21/9;
       }
 
       .hero-slide picture,
@@ -1033,17 +1018,6 @@
       .mobile-bar .btn{
         font-size:0.9rem;
         min-height:50px;
-      }
-
-      /* 모바일 의료진 소개 팝업 (세로 스크롤 방식으로 수정) */
-      .modal-horizontal {
-        flex-direction: column;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
-      .modal-horizontal img {
-        width: 100%;
-        height: auto;
       }
     }
 
@@ -1315,16 +1289,19 @@
         </div>
       </div>
     </section>
-    
-    <!-- ===================== 의료진 소개 섹션 ===================== -->
+   
+    <!-- ===================== 마포연세윤치과는.. (버튼 추가) ===================== -->
     <section class="section" id="doctors">
       <div class="container">
         <div class="section-title title-only">
-          <div class="eyebrow"><i class="fas fa-user-md"></i> 의료진 소개</div>
+          <div class="eyebrow"><i class="fas fa-user-md"></i> 마포연세윤치과는..</div>
         </div>
-        <div style="text-align: center; margin-top: 10px;">
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 10px; flex-wrap: wrap;">
           <button class="btn btn-primary open-modal-btn" data-target="#modal-doctors">
             <i class="fas fa-user-md"></i> 의료진 소개
+          </button>
+          <button class="btn btn-primary open-modal-btn" data-target="#modal-suga">
+            <i class="fas fa-file-invoice-dollar"></i> 비급여수가표
           </button>
         </div>
       </div>
@@ -1496,14 +1473,23 @@
     </div>
   </div>
 
-  <!-- 6. 의료진 소개 팝업 -->
+  <!-- 6. 의료진 소개 팝업 (세로 연속 스크롤) -->
   <div class="custom-modal-overlay" id="modal-doctors">
     <div class="custom-modal-content">
       <button class="custom-modal-close"><i class="fas fa-times"></i></button>
-      <!-- PC에서는 가로(flex row), 모바일에서는 세로(flex column)로 스크롤되도록 적용됨 -->
-      <div class="modal-horizontal">
+      <div class="modal-vertical">
         <img src="doc1.png" alt="의료진 1">
         <img src="doc2.png" alt="의료진 2">
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. 비급여수가표 팝업 (세로 스크롤) -->
+  <div class="custom-modal-overlay" id="modal-suga">
+    <div class="custom-modal-content">
+      <button class="custom-modal-close"><i class="fas fa-times"></i></button>
+      <div class="modal-vertical">
+        <img src="suga.jpg" alt="비급여수가표">
       </div>
     </div>
   </div>
@@ -1582,7 +1568,7 @@
       dots.forEach(dot => dot.addEventListener('click', function () { goTo(parseInt(this.dataset.index, 10)); startAuto(); }));
       sliderEl.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
       sliderEl.addEventListener('mouseleave', startAuto);
-      
+     
       goTo(0); startAuto();
     })();
 
@@ -1607,12 +1593,12 @@
           if(e.target.classList.contains('custom-modal-overlay') || e.target.closest('.custom-modal-close')){
             overlay.classList.remove('active');
             document.body.style.overflow = '';
-            
+           
             // iframe(유튜브) 재생 중지 처리
             const iframe = overlay.querySelector('iframe');
             if(iframe) {
               const iframeSrc = iframe.src;
-              iframe.src = iframeSrc; 
+              iframe.src = iframeSrc;
             }
           }
         });
@@ -1623,7 +1609,7 @@
         const slider = wrap.querySelector('.modal-slider');
         const prev = wrap.querySelector('.prev');
         const next = wrap.querySelector('.next');
-        
+       
         if(prev && next && slider) {
           prev.addEventListener('click', () => {
             slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
