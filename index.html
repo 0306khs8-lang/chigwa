@@ -107,7 +107,6 @@
       margin-bottom: 0;
     }
 
-    /* 추가: h2가 있을 때 눈썹 여백 조정 */
     .section-title:not(.title-only) .eyebrow {
       margin-bottom: 16px;
     }
@@ -313,12 +312,14 @@
       font-size:1rem;
       line-height:1.2;
       transition:all .2s ease;
+      cursor: pointer;
     }
 
     .btn-primary{
       background:var(--primary);
       color:#fff;
       box-shadow:0 10px 24px rgba(109,98,90,0.16);
+      border: none;
     }
 
     .btn-primary:hover{
@@ -689,8 +690,8 @@
       position: relative;
       background: #fff;
       width: 100%;
-      max-width: 1000px; /* PC 환경에서 더 크게 나오도록 크기 대폭 상향 */
-      max-height: 90vh;  /* 세로 길이 확보 */
+      max-width: 1000px;
+      max-height: 90vh;
       border-radius: 16px;
       overflow: hidden;
       display: flex;
@@ -755,7 +756,7 @@
       height: auto;
       display: block;
       object-fit: contain;
-      max-height: 90vh; /* 화면 밖으로 나가지 않게 조절 */
+      max-height: 90vh;
     }
 
     .modal-slide iframe {
@@ -793,6 +794,21 @@
     }
     .modal-vertical img {
       width: 100%;
+      display: block;
+    }
+
+    /* 가로 연속 보기 (의료진 소개용) */
+    .modal-horizontal {
+      display: flex;
+      overflow-x: auto;
+      width: 100%;
+      max-height: 90vh;
+      -webkit-overflow-scrolling: touch;
+    }
+    .modal-horizontal img {
+      width: 50%;
+      flex-shrink: 0;
+      object-fit: contain;
       display: block;
     }
 
@@ -959,6 +975,11 @@
       .mobile-bar .btn{
         font-size:0.9rem;
         min-height:50px;
+      }
+
+      /* 모바일에서는 의료진 팝업이 가로로 스와이프 되도록 */
+      .modal-horizontal img {
+        width: 100%;
       }
     }
 
@@ -1154,7 +1175,7 @@
       </div>
     </section>
 
-    <!-- ===================== 둘러보기 섹션 신규 추가 ===================== -->
+    <!-- ===================== 둘러보기 섹션 ===================== -->
     <section class="section" id="tour">
       <div class="container">
         <div class="section-title title-only">
@@ -1166,6 +1187,7 @@
       </div>
     </section>
 
+    <!-- ===================== 오시는 길 섹션 ===================== -->
     <section class="section" id="location">
       <div class="container">
         <div class="section-title">
@@ -1212,6 +1234,21 @@
         </div>
       </div>
     </section>
+    
+    <!-- ===================== 의료진 소개 섹션 신규 추가 ===================== -->
+    <section class="section" id="doctors">
+      <div class="container">
+        <div class="section-title title-only">
+          <div class="eyebrow"><i class="fas fa-user-md"></i> 의료진 소개</div>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+          <button class="btn btn-primary open-modal-btn" data-target="#modal-doctors">
+            <i class="fas fa-user-md"></i> 의료진 소개
+          </button>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -1294,7 +1331,7 @@
     </div>
   </div>
 
-  <!-- ===================== 진료과목 모달 팝업 구조 ===================== -->
+  <!-- ===================== 모달 팝업 구조 ===================== -->
   <!-- 1. 치아교정 팝업 -->
   <div class="custom-modal-overlay" id="modal-ortho">
     <div class="custom-modal-content">
@@ -1378,6 +1415,17 @@
     </div>
   </div>
 
+  <!-- 6. 의료진 소개 팝업 (가로 연속) -->
+  <div class="custom-modal-overlay" id="modal-doctors">
+    <div class="custom-modal-content">
+      <button class="custom-modal-close"><i class="fas fa-times"></i></button>
+      <div class="modal-horizontal">
+        <img src="doc1.png" alt="의료진 1">
+        <img src="doc2.png" alt="의료진 2">
+      </div>
+    </div>
+  </div>
+
 
   <!-- ===================== 스크립트 ===================== -->
   <script>
@@ -1456,7 +1504,7 @@
       goTo(0); startAuto();
     })();
 
-    /* ---- 진료과목 모달 제어 및 슬라이드 버튼 ---- */
+    /* ---- 모달 제어 및 슬라이드 버튼 ---- */
     (function(){
       // 열기
       document.querySelectorAll('.open-modal-btn').forEach(btn => {
