@@ -90,7 +90,7 @@
     }
 
     .title-only {
-      margin-bottom: 24px;
+      margin-bottom: 34px;
     }
 
     .eyebrow{
@@ -342,12 +342,23 @@
     .about-images {
       display: flex;
       flex-direction: column;
-      font-size: 0;
-      line-height: 0;
+      gap: 60px;
     }
-    .about-images img {
+
+    .about-item h3 {
+      text-align: center;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: var(--text);
+      margin: 0 0 24px 0;
+      letter-spacing: -0.03em;
+    }
+
+    .about-item img {
       width: 100%;
       display: block;
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
     }
 
     /* ===================== 진료과목 (Subjects) ===================== */
@@ -797,21 +808,6 @@
       display: block;
     }
 
-    /* 가로 연속 보기 (의료진 소개용) */
-    .modal-horizontal {
-      display: flex;
-      overflow-x: auto;
-      width: 100%;
-      max-height: 90vh;
-      -webkit-overflow-scrolling: touch;
-    }
-    .modal-horizontal img {
-      width: 50%;
-      flex-shrink: 0;
-      object-fit: contain;
-      display: block;
-    }
-
     /* ===================== RESPONSIVE ===================== */
     @media (max-width:1100px){
       .location-grid{
@@ -905,6 +901,19 @@
         font-size:1.65rem;
       }
 
+      .about-images {
+        gap: 40px;
+      }
+
+      .about-item h3 {
+        font-size: 1.45rem;
+        margin-bottom: 16px;
+      }
+
+      .about-item img {
+        border-radius: 16px;
+      }
+
       .subject-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -975,10 +984,6 @@
       .mobile-bar .btn{
         font-size:0.9rem;
         min-height:50px;
-      }
-
-      .modal-horizontal img {
-        width: 100%;
       }
     }
 
@@ -1057,13 +1062,25 @@
     <section class="section" id="about">
       <div class="container">
         <div class="section-title title-only">
-          <div class="eyebrow"><i class="fas fa-info-circle"></i> 치과 소개</div>
+          <div class="eyebrow"><i class="fas fa-info-circle"></i> 치과 소개 - 마포연세윤치과만의 특별함</div>
         </div>
         <div class="about-images">
-          <img src="sogae1.png" alt="치과소개 1" loading="lazy" />
-          <img src="sogae2.png" alt="치과소개 2" loading="lazy" />
-          <img src="sogae3.png" alt="치과소개 3" loading="lazy" />
-          <img src="sogae4.png" alt="치과소개 4" loading="lazy" />
+          <div class="about-item">
+            <h3>철저한 감염방지 시스템</h3>
+            <img src="sogae1.png" alt="철저한 감염방지 시스템" loading="lazy" />
+          </div>
+          <div class="about-item">
+            <h3>통증 관리 시스템</h3>
+            <img src="sogae2.png" alt="통증 관리 시스템" loading="lazy" />
+          </div>
+          <div class="about-item">
+            <h3>정확하고 안전한 진단</h3>
+            <img src="sogae3.png" alt="정확하고 안전한 진단" loading="lazy" />
+          </div>
+          <div class="about-item">
+            <h3>세심한 구강 관리</h3>
+            <img src="sogae4.png" alt="세심한 구강 관리" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -1414,11 +1431,11 @@
     </div>
   </div>
 
-  <!-- 6. 의료진 소개 팝업 (가로 연속) -->
+  <!-- 6. 의료진 소개 팝업 (세로 연속 스크롤로 수정) -->
   <div class="custom-modal-overlay" id="modal-doctors">
     <div class="custom-modal-content">
       <button class="custom-modal-close"><i class="fas fa-times"></i></button>
-      <div class="modal-horizontal">
+      <div class="modal-vertical">
         <img src="doc1.png" alt="의료진 1">
         <img src="doc2.png" alt="의료진 2">
       </div>
